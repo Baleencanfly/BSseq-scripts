@@ -15,8 +15,8 @@ Users should first install the following software.
 7.	ViewBS (Huang et al., 2018; https://github.com/xie186/ViewBS)
 
 ## Get public files for test (if need)
-`wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR850/SRR850328/SRR850328_1.fastq.gz`
-`wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR850/SRR850328/SRR850328_2.fastq.gz`
+`wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR850/SRR850328/SRR850328_1.fastq.gz`  
+`wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR850/SRR850328/SRR850328_2.fastq.gz`  
 `wget http://ftp.ensemblgenomes.org/pub/plants/release-45/fasta/zea_mays/dna/Zea_mays.B73_RefGen_v4.dna.toplevel.fa.gz`
 
 The detailed scripts are in Scripts.md and the format of the intermediate file can be viewed in the data folder.
