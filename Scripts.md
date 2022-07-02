@@ -29,14 +29,14 @@
 
 `bedtools makewindows -g /path/to/REFfile/chrom.sizes -w 100 > REFfile_w100.bed`
 
-#The next 3 steps are same between samples.
+#The next 3 steps are same between samples.  
 `awk 'NR>1{print $1"\t"$2-1"\t"$2"\t"$3"\t"$4"\t"$7"\t"$8}' /path/to/aligntoREF/BSMAPratio/SampleX > SampleX.bed`
 
 `bedtools intersect -a REFfile_w100.bed -b SampleX.bed -wa -wb > SampleX_w100.bed`
 
 `awk '{n[$1"\t"$2"\t"$3"\t"$8]+=1; sum1[$1"\t"$2"\t"$3"\t"$8]+=$9; sum2[$1"\t"$2"\t"$3"\t"$8]+=$10}END{for(i in n) print i"\t"n[i]"\t"sum1[i]"\t"sum2[i]"\t"sum1[i]/sum2[i]}' SampleX_w100.bed | sort -n -k1 -k2 > SampleX_w100_smry.bed`
 
-#Detect the DMRs between SampleX and SampleY.
+#Detect the DMRs between SampleX and SampleY.  
 `bedtools intersect -a SampleX_w100_smry.bed -b SampleY_w100_smry.bed -wa -wb > SampleXYcmpr_w100_smry.bed`
 
 `awk '{if($4=="CG" && $12=="CG" && $5>=3 && $13>=3 && $7>=$5*2 && $15>=$13*2 && (($8-$16)>=0.6 || ($16-$8)>=0.6)) print}' SampleXYcmpr_w100_smry.bed > SampleXYcmpr_w100_smry_CG_DMRs.bed`
@@ -48,7 +48,7 @@
 #Recount the methylation levels in merged DMRs. The final 3 steps for CHG and CHH are same as CG.  
 `bedtools merge -i SampleXYcmpr_w100_smry_CG_DMRs.bed > SampleXYcmpr_w100_smry_CG_DMRs_merged.bed`
 
-#The final 2 steps are same between samples.
+#The final 2 steps are same between samples.  
 `bedtools intersect -a SampleXYcmpr_w100_smry_CG_DMRs_merged.bed -b SampleX.bed -wa -wb > SampleXYcmpr_w100_smry_CG_DMRs_merged_sampleX.bed`
 
 `awk '{n[$1"\t"$2"\t"$3"\t"$8]+=1; sum1[$1"\t"$2"\t"$3"\t"$8]+=$9; sum2[$1"\t"$2"\t"$3"\t"$8]+=$10}END{for(i in n) print i"\t"n[i]"\t"sum1[i]"\t"sum2[i]"\t"sum1[i]/sum2[i]}' SampleXYcmpr_w100_smry_CG_DMRs_merged_sampleX.bed | sort -n -k1 -k2 > SampleXYcmpr_w100_smry_CG_DMRs_merged_sampleX_smry.bed`
