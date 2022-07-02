@@ -53,6 +53,8 @@
 
 `awk '{n[$1"\t"$2"\t"$3"\t"$8]+=1; sum1[$1"\t"$2"\t"$3"\t"$8]+=$9; sum2[$1"\t"$2"\t"$3"\t"$8]+=$10}END{for(i in n) print i"\t"n[i]"\t"sum1[i]"\t"sum2[i]"\t"sum1[i]/sum2[i]}' SampleXYcmpr_w100_smry_CG_DMRs_merged_sampleX.bed | sort -n -k1 -k2 > SampleXYcmpr_w100_smry_CG_DMRs_merged_sampleX_smry.bed`
 
+`awk '{if($4=="CG") print}' SampleXYcmpr_w100_smry_CG_DMRs_merged_sampleX_smry.bed > SampleXYcmpr_w100_smry_CG_DMRs_merged_sampleX_smry_CG.bed`
+
 ## The visualization of DNA methylation level
 `awk '{if($1!="chr") print $1"\t"$2"\t"$3"\t"$7"\t"$8-$7"\t"$4"\t"$4}' /path/to/aligntoREF/BSMAPratio/SampleX > /path/to/aligntoREF/ViewBS/SampleX_forViewBS.tab`
 
