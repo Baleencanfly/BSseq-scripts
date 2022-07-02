@@ -12,7 +12,8 @@ Users should first install the following software.
 4.	Bamtools (Barnett et al., 2011; https://github.com/pezmaster31/bamtools)
 5.	bamUtil (https://github.com/statgen/bamUtil)
 6.	BS-SNPer (Gao et al., 2015; https://github.com/hellbelly/BS-Snper)
-7.	ViewBS (Huang et al., 2018; https://github.com/xie186/ViewBS)
+7.	bedtools (https://bedtools.readthedocs.io/en/latest/)
+8.	ViewBS (Huang et al., 2018; https://github.com/xie186/ViewBS)
 
 ## Get public files for test (if need)
 `wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR850/SRR850328/SRR850328_1.fastq.gz`  
